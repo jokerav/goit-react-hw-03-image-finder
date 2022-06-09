@@ -1,22 +1,18 @@
 import { Component } from 'react';
+import ImageGallery from './ImageGallery/ImageGallery';
 import Searchbar from './Searchbar/Searchbar';
 export class App extends Component {
+  state = {
+    request: '',
+  };
   getInput = input => {
-    console.log(input);
+    this.setState({ request: input });
   };
   render() {
     return (
-      <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101',
-      // }}
-      >
+      <div>
         <Searchbar onSubmit={this.getInput} />
+        <ImageGallery request={this.state.request} />
       </div>
     );
   }
