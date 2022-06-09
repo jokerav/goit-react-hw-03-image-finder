@@ -13,7 +13,7 @@ class ImageGallery extends Component {
 
     try {
       const response = await axios.get(searchRequest);
-      this.setState(prevState => prevState.page + 1);
+      this.setState(prevState => (prevState.page += 1));
       return response.data;
     } catch (error) {
       return error.toJSON();
