@@ -1,13 +1,14 @@
+import s from '../styles.module.css';
 const Searchbar = () => {
   return (
-    <header class="searchbar">
-      <form class="form">
-        <button type="submit" class="button">
-          <span class="button-label">Search</span>
+    <header className={s.Searchbar}>
+      <form className={s.SearchForm}>
+        <button type="submit" className={s.SearchFormButton}>
+          <span className={s.SearchFormButtonLabel}>Search</span>
         </button>
 
         <input
-          class="input"
+          className={s.SearchFormInput}
           type="text"
           autocomplete="off"
           autofocus
