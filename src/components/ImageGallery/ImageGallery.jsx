@@ -1,4 +1,4 @@
-import s from '../styles.module.css';
+import s from '.';
 const ImageGallery = () => {
   return (
     <ul className={s.ImageGallery}>
