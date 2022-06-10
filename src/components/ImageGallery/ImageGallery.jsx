@@ -14,8 +14,10 @@ class ImageGallery extends Component {
     try {
       const response = await axios.get(searchRequest);
       this.setState(prevState => (prevState.page += 1));
+      console.log(response.data);
       return response.data;
     } catch (error) {
+      console.log(error.toJSON());
       return error.toJSON();
     }
   }
