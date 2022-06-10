@@ -48,7 +48,7 @@ class ImageGallery extends Component {
       return <p>Что-то пошло не так...</p>;
     }
     if (status === 'resolved') {
-      return <p>Что-то пошло не так...</p>;
+      return <p>Тут будут картинки</p>;
     }
     // return <ul className={s.ImageGallery}></ul>;
   }
