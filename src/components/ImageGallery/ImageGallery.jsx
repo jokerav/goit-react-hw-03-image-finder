@@ -30,7 +30,7 @@ class ImageGallery extends Component {
           const { id, webformatURL, largeImageURL } = image;
           console.log(id, webformatURL, largeImageURL);
           const img = { id, webformatURL, largeImageURL };
-          images.push(img);
+          return images.push(img);
         });
         console.log(images);
       });
