@@ -28,9 +28,8 @@ class ImageGallery extends Component {
         let images = [];
         responce.hits.map(image => {
           const { id, webformatURL, largeImageURL } = image;
-          console.log(id, webformatURL, largeImageURL);
           const img = { id, webformatURL, largeImageURL };
-          return images.push(img);
+          images.push(img);
         });
         console.log(images);
       });
