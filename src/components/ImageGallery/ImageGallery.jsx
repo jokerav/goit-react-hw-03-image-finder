@@ -25,6 +25,7 @@ class ImageGallery extends Component {
     if (prevReuest !== nextRequst) {
       this.setState({ status: 'pending' });
       this.getImages().then(responce => {
+        this.setState({ status: 'resolved' });
         let images = [];
         responce.hits.map(image => {
           const { id, webformatURL, largeImageURL } = image;
