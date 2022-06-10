@@ -29,7 +29,7 @@ class ImageGallery extends Component {
       this.getImages().then(responce => {
         this.setState({ status: 'resolved' });
         let images = [];
-        responce.hits.forEach(image => {
+        responce.hits.map(image => {
           const { id, webformatURL, largeImageURL } = image;
           const img = { id, webformatURL, largeImageURL };
           images.push(img);
