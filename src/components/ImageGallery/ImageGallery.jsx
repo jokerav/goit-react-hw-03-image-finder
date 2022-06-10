@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import s from '../styles.module.css';
+// import s from 'styles.module.css';
 import axios from 'axios';
 class ImageGallery extends Component {
   state = {
@@ -21,7 +21,7 @@ class ImageGallery extends Component {
       return error.toJSON();
     }
   }
-  componentDidUpdate(prevProps) {
+  async componentDidUpdate(prevProps) {
     const prevReuest = prevProps.request;
     const nextRequst = this.props.request;
     if (prevReuest !== nextRequst) {
