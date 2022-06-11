@@ -17,6 +17,7 @@ class ImageGallery extends Component {
       const response = await axios.get(searchRequest);
       return response.data;
     } catch (error) {
+      this.setState({ status: 'rejected' });
       console.log(error.toJSON());
       return error.toJSON();
     }
@@ -84,7 +85,7 @@ class ImageGallery extends Component {
               );
             })}
           </ul>
-          {this.state.images !== [] && (
+          {this.state.images.length > 0 && (
             <button onClick={this.onOladMore} className={s.Button}>
               Load more
             </button>
