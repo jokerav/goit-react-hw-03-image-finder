@@ -50,19 +50,24 @@ class ImageGallery extends Component {
     }
     if (status === 'resolved') {
       return (
-        <ul className={s.ImageGallery}>
-          {this.state.images.map(img => {
-            const { id, webformatURL, largeImageURL } = img;
-            return (
-              <ImageGalleryItem
-                key={id}
-                id={id}
-                webformatURL={webformatURL}
-                largeImageURL={largeImageURL}
-              />
-            );
-          })}
-        </ul>
+        <div>
+          <ul className={s.ImageGallery}>
+            {this.state.images.map(img => {
+              const { id, webformatURL, largeImageURL } = img;
+              return (
+                <ImageGalleryItem
+                  key={id}
+                  id={id}
+                  webformatURL={webformatURL}
+                  largeImageURL={largeImageURL}
+                />
+              );
+            })}
+          </ul>
+          {this.state.images !== [] && (
+            <button className={s.Button}>Load more</button>
+          )}
+        </div>
       );
     }
   }
