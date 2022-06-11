@@ -26,9 +26,6 @@ class ImageGallery extends Component {
     const nextPage = this.state.page;
     const prevRequest = prevProps.request;
     const nextRequest = this.props.request;
-
-    console.log(prevPage, nextPage);
-    console.log(prevRequest, nextRequest);
     if (prevPage !== nextPage || prevRequest !== nextRequest) {
       this.getImages().then(responce => {
         this.setState({ status: 'pending' });
@@ -46,12 +43,9 @@ class ImageGallery extends Component {
         }
 
         this.setState({ images: newState, status: 'resolved' });
-
-        // this.setState(prevState => prevState.images.push(images));
       });
     }
   }
-  clearMarkup = () => this.setState({ page: 1, images: [] });
   onOladMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
