@@ -1,9 +1,10 @@
-import s from '../styles.module.css';
-const ImageGalleryItem = () => {
+// import s from 'styles.module.css';
+const ImageGalleryItem = ({ id, webformatURL, largeImageURL }) => {
   return (
-    <li className={s.ImageGalleryItem}>
-      <img className={s.ImageGalleryItemImage} src="" alt="" />
+    <li>
+      <img src={webformatURL} alt="dgh" />
     </li>
   );
 };
+
 export default ImageGalleryItem;
