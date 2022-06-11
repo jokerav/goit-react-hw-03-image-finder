@@ -49,10 +49,8 @@ class ImageGallery extends Component {
     }
   }
   onOladMore = e => {
-    // e.preventDefault();
-    this.setState(prevState => {
-      prevState.page = prevState.page + 1;
-    });
+    e.preventDefault();
+    this.setState(prevState => (prevState.page = prevState.page + 1));
     console.log(this.state.page);
   };
   render() {
