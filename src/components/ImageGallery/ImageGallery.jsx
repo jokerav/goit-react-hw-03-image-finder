@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import { PureComponent } from 'react';
 import s from '../styles.module.css';
 import axios from 'axios';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
-class ImageGallery extends PureComponent {
+class ImageGallery extends Component {
   state = {
     status: 'idle',
     page: 1,
@@ -52,7 +51,7 @@ class ImageGallery extends PureComponent {
   onOladMore = e => {
     // e.preventDefault();
     this.setState(prevState => {
-      prevState.page += 1;
+      prevState.page = prevState.page + 1;
     });
     console.log(this.state.page);
   };
