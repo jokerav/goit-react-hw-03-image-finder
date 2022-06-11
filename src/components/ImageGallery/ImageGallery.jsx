@@ -52,14 +52,15 @@ class ImageGallery extends Component {
       return (
         <ul className={s.ImageGallery}>
           {this.state.images.map(img => {
-            <li>fgn</li>;
-            // const { id, webformatURL, largeImageURL } = img;
-            // <ImageGalleryItem
-            //   key={id}
-            //   id={id}
-            //   webformatURL={webformatURL}
-            //   largeImageURL={largeImageURL}
-            // />;
+            const { id, webformatURL, largeImageURL } = img;
+            return (
+              <ImageGalleryItem
+                key={id}
+                id={id}
+                webformatURL={webformatURL}
+                largeImageURL={largeImageURL}
+              />
+            );
           })}
         </ul>
       );
