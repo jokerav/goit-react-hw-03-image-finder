@@ -14,7 +14,6 @@ class ImageGallery extends Component {
     const searchRequest = `https://pixabay.com/api/?q=${querry}&page=${page}&key=25937561-4be56ebc67dabae3f5d5abc9c&image_type=photo&orientation=horizontal&per_page=12`;
     try {
       const response = await axios.get(searchRequest);
-
       return response.data;
     } catch (error) {
       console.log(error.toJSON());
@@ -48,9 +47,10 @@ class ImageGallery extends Component {
       });
     }
   }
-  onOladMore = e => {
-    e.preventDefault();
-    this.setState(prevState => (prevState.page = prevState.page + 1));
+  onOladMore = () => {
+    // e.preventDefault();
+    console.log(this.state.page);
+    this.setState(prevState => ({ page: prevState.page + 1 }));
     console.log(this.state.page);
   };
   render() {
