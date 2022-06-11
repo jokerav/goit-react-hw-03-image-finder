@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { MutatingDots } from 'react-loader-spinner';
 import s from '../styles.module.css';
 import axios from 'axios';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
@@ -27,8 +28,8 @@ class ImageGallery extends Component {
     const prevRequest = prevProps.request;
     const nextRequest = this.props.request;
     if (prevPage !== nextPage || prevRequest !== nextRequest) {
+      this.setState({ status: 'pending' });
       this.getImages().then(responce => {
-        this.setState({ status: 'pending' });
         let images = [];
         responce.hits.forEach(image => {
           const { id, webformatURL, largeImageURL } = image;
@@ -55,7 +56,14 @@ class ImageGallery extends Component {
       return <p>Введите запрос</p>;
     }
     if (status === 'pending') {
-      return <p>Загружаем</p>;
+      return (
+        <MutatingDots
+          height="100"
+          width="100"
+          color="grey"
+          ariaLabel="loading"
+        />
+      );
     }
     if (status === 'rejected') {
       return <p>Что-то пошло не так...</p>;
