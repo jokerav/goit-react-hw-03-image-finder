@@ -29,7 +29,6 @@ class ImageGallery extends Component {
 
     console.log(prevPage, nextPage);
     console.log(prevRequest, nextRequest);
-
     if (prevPage !== nextPage || prevRequest !== nextRequest) {
       this.getImages().then(responce => {
         this.setState({ status: 'pending' });
@@ -39,7 +38,12 @@ class ImageGallery extends Component {
           const img = { id, webformatURL, largeImageURL };
           images.push(img);
         });
-        const newState = [...prevState.images, ...images];
+        let newState = [];
+        if (prevRequest !== nextRequest) {
+          newState = [...images];
+        } else {
+          newState = [...prevState.images, ...images];
+        }
 
         this.setState({ images: newState, status: 'resolved' });
 
@@ -47,11 +51,9 @@ class ImageGallery extends Component {
       });
     }
   }
+  clearMarkup = () => this.setState({ page: 1, images: [] });
   onOladMore = () => {
-    // e.preventDefault();
-    console.log(this.state.page);
     this.setState(prevState => ({ page: prevState.page + 1 }));
-    console.log(this.state.page);
   };
   render() {
     const { status } = this.state;

@@ -11,7 +11,7 @@ class Searchbar extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state.input.toLocaleLowerCase());
+    this.props.onSubmit(this.state.input.toLocaleLowerCase().trim());
     this.setState({ input: '' });
   };
   render() {
