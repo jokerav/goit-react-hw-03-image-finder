@@ -6,6 +6,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import Searchbar from './Searchbar/Searchbar';
 import Modal from 'components/Modal/Modal';
 import s from './styles.module.css';
+import Button from './Button/button';
 export class App extends Component {
   state = {
     request: '',
@@ -75,14 +76,15 @@ export class App extends Component {
     return (
       <div className={s.App}>
         <Searchbar onSubmit={this.getInput} />
-        {!images.length > 0 || (
+        {images.length > 0 && (
           <ImageGallery
             images={this.state.images}
             onLoadMore={this.onLoadMore}
             onImageClick={this.onImageClick}
           />
         )}
-        {!isLoading || (
+        {images.length > 0 && <Button onLoadMore={this.onLoadMore} />}
+        {isLoading && (
           <MutatingDots
             height="100"
             width="100"
@@ -90,7 +92,7 @@ export class App extends Component {
             ariaLabel="loading"
           />
         )}
-        {!isModalOpen || (
+        {isModalOpen && (
           <Modal img={this.state.link} closeModal={this.closeModal} />
         )}
       </div>

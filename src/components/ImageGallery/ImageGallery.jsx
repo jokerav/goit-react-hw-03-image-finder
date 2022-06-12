@@ -5,7 +5,7 @@ import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
 class ImageGallery extends Component {
   render() {
-    const { onImageClick, images, onLoadMore } = this.props;
+    const { onImageClick, images } = this.props;
     return (
       <div onClick={e => onImageClick(e)}>
         <ul className={s.ImageGallery}>
@@ -21,11 +21,6 @@ class ImageGallery extends Component {
             );
           })}
         </ul>
-        {images.length > 0 && (
-          <button onClick={() => onLoadMore()} className={s.Button}>
-            Load more
-          </button>
-        )}
       </div>
     );
   }
