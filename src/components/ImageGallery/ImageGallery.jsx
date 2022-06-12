@@ -117,6 +117,6 @@ class ImageGallery extends Component {
   }
 }
 ImageGallery.propTypes = {
-  request: PropTypes.string,
+  request: PropTypes.string.isRequired,
 };
 export default ImageGallery;
