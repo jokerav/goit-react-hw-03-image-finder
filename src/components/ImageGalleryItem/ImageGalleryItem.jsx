@@ -2,7 +2,7 @@
 const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
   return (
     <li>
-      <img src={webformatURL} alt="image" data={largeImageURL} />
+      <img src={webformatURL} alt="pic" data={largeImageURL} />
     </li>
   );
 };

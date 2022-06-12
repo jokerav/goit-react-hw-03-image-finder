@@ -9,7 +9,6 @@ class Modal extends Component {
   };
   handleClick = event => {
     if (event.target.nodeName !== 'IMG') {
-      console.log('backdrop');
       const { closeModal } = this.props;
       closeModal();
     }
