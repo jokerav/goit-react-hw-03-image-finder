@@ -53,15 +53,11 @@ class ImageGallery extends Component {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
   onImageClick = e => {
-    // console.log('тык...');
-    // console.log(e.currentTarget);
-    // console.log(e);
-    // console.log(e.target);
     if (e.target.nodeName === 'IMG') {
-      // <Modal image={e.target.attributes.data.nodeValue} />;
-      console.log(e.target.attributes.data.nodeValue);
-      this.setState({ link: e.target.attributes.data.nodeValue });
-      this.setState({ status: 'modal' });
+      this.setState({
+        link: e.target.attributes.data.nodeValue,
+        status: 'modal',
+      });
     }
   };
 
