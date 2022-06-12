@@ -1,9 +1,9 @@
 import s from '../styles.module.css';
-const Modal = () => {
+const Modal = ({ img }) => {
   return (
     <div className={s.Overlay}>
       <div className={s.Modal}>
-        <img src="" alt="" />
+        <img src={img} alt="" />
       </div>
     </div>
   );

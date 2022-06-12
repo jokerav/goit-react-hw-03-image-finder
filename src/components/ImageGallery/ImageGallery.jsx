@@ -3,6 +3,7 @@ import { MutatingDots } from 'react-loader-spinner';
 import s from '../styles.module.css';
 import axios from 'axios';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import Modal from 'components/Modal/Modal';
 class ImageGallery extends Component {
   state = {
     status: 'idle',
@@ -51,6 +52,19 @@ class ImageGallery extends Component {
   onOladMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
+  onImageClick = e => {
+    // console.log('тык...');
+    // console.log(e.currentTarget);
+    // console.log(e);
+    // console.log(e.target);
+    if (e.target.nodeName === 'IMG') {
+      // <Modal image={e.target.attributes.data.nodeValue} />;
+      console.log(e.target.attributes.data.nodeValue);
+      this.setState({ link: e.target.attributes.data.nodeValue });
+      this.setState({ status: 'modal' });
+    }
+  };
+
   render() {
     const { status } = this.state;
     if (status === 'idle') {
@@ -71,7 +85,7 @@ class ImageGallery extends Component {
     }
     if (status === 'resolved') {
       return (
-        <div>
+        <div onClick={this.onImageClick}>
           <ul className={s.ImageGallery}>
             {this.state.images.map(img => {
               const { id, webformatURL, largeImageURL } = img;
@@ -92,6 +106,10 @@ class ImageGallery extends Component {
           )}
         </div>
       );
+    }
+    if (status === 'modal') {
+      const { link } = this.state;
+      return <Modal img={link} />;
     }
   }
 }

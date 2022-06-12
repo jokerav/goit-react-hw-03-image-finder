@@ -1,8 +1,8 @@
 // import s from 'styles.module.css';
-const ImageGalleryItem = ({ id, webformatURL, largeImageURL }) => {
+const ImageGalleryItem = ({ webformatURL, largeImageURL }) => {
   return (
     <li>
-      <img src={webformatURL} alt="dgh" />
+      <img src={webformatURL} alt="image" data={largeImageURL} />
     </li>
   );
 };
