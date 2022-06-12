@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import s from '../styles.module.css';
 class Modal extends Component {
   handleKeyDown = event => {
@@ -33,5 +34,9 @@ class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  img: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
 
 export default Modal;
