@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { MutatingDots } from 'react-loader-spinner';
 import s from '../styles.module.css';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Modal from 'components/Modal/Modal';
@@ -115,4 +116,7 @@ class ImageGallery extends Component {
     }
   }
 }
+ImageGallery.propTypes = {
+  request: PropTypes.string,
+};
 export default ImageGallery;
