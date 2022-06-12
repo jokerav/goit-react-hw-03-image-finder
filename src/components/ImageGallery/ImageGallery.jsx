@@ -60,6 +60,11 @@ class ImageGallery extends Component {
       });
     }
   };
+  closeModal = () => {
+    this.setState({
+      status: 'resolved',
+    });
+  };
 
   render() {
     const { status } = this.state;
@@ -105,7 +110,7 @@ class ImageGallery extends Component {
     }
     if (status === 'modal') {
       const { link } = this.state;
-      return <Modal img={link} />;
+      return <Modal img={link} closeModal={this.closeModal} />;
     }
   }
 }
