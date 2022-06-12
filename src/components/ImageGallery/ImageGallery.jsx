@@ -18,10 +18,11 @@ class ImageGallery extends Component {
       const response = await axios.get(searchRequest);
       return response.data;
     } catch (error) {
-      this.setState({ status: 'rejected' });
-      console.log(error.toJSON());
       return error.toJSON();
     }
+  }
+  componentDidCatch() {
+    this.setState({ status: 'rejected' });
   }
 
   async componentDidUpdate(prevProps, prevState) {
