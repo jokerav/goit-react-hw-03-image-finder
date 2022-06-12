@@ -2,7 +2,7 @@ import { Component } from 'react';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Searchbar from './Searchbar/Searchbar';
-// import s from './styles.module.css';
+import s from './styles.module.css';
 export class App extends Component {
   state = {
     request: '',
